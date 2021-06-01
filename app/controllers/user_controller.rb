@@ -5,21 +5,26 @@ class UserController < ApplicationController
         erb :'users/index'
     end
 
-    get '/users/signup' do
+    get '/signup' do
         erb :'users/signup'
     end
 
-    post '/users/signup' do
+    post '/signup' do
         user = User.new(params)
 
-        redirect '/signup'
+        if !user.save
+            redirect '/signup'
+        else
+            user.save
+            redirect '/books'
+        end  
     end
 
-    get '/users/login' do
+    get '/login' do
         erb :'users/login'
     end
 
-    post '/users/login' do
+    post '/login' do
         user = User.new(params)
 
         redirect '/login'
