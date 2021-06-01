@@ -1,6 +1,8 @@
-<h1>This is the BOOKS index page</h1>
+<h1>Welcome to your Virtual Library</h1>
 <ul>
 <% @books.each do |b| %>
-<li><%= b.title %></li>
+<li>
+<a href="/books/<%= b.id %>"><%= b.title %>
+</li>
 <%end%>
 </ul>
