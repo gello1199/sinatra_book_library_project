@@ -20,7 +20,9 @@ class BooksController < ApplicationController
         erb :'books/show'
     end
 
-
+    get '/books/:id/edit' do
+        
+    end
 
 
 
