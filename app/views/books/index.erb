@@ -1,1 +1,6 @@
-<h1>This is the BOOKs index page</h1>
+<h1>This is the BOOKS index page</h1>
+<ul>
+<% @books.each do |b| %>
+<li><%= b.title %></li>
+<%end%>
+</ul>

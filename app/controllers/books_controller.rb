@@ -1,6 +1,13 @@
 class BooksController < ApplicationController
     get '/books' do 
         @books = Book.all
-        erb :index
+        erb :'books/index'
     end
+
+    get '/books/new' do
+
+        erb :new
+    end
+
+
 end
