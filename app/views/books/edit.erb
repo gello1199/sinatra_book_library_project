@@ -1,0 +1,20 @@
+<h1>Edit a Book</h1>
+
+<form method="POST" action="/books/<%=@book.id%>">
+<input type="hidden" name="_method" value="patch">
+
+<label>Title: </label>
+<input type="text" name="title" id="book_title" value="<%=@book.title%>"> <br><br>
+
+<label>Author: </label>
+<input type="text" name="author" id="book_author" value="<%=@book.author%>"><br><br>
+
+<label>Genre: </label>
+<input type="text" name="genre" id="book_genre" value="<%=@book.genre%>"><br><br>
+
+<label>Year Published: </label>
+<input type="text" name="year_published" id="book_year_published" value="<%=@book.year_published%>"><br><br>
+
+<input type="submit" id="submit" value="Submit Edit">
+
+</form>
