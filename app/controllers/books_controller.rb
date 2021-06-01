@@ -5,8 +5,7 @@ class BooksController < ApplicationController
     end
 
     get '/books/new' do
-
-        erb :new
+        erb :'books/new'
     end
 
 
