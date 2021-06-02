@@ -32,7 +32,12 @@ class BooksController < ApplicationController
         if !logged_in?
             redirect '/login'
         end
+
         @book = Book.find_by_id(params[:id])
+        
+        if @book.user_id != current_user.id
+            redirect '/books'
+        end
         erb :'books/edit'
     end
 
