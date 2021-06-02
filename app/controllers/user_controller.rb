@@ -21,6 +21,11 @@ class UserController < ApplicationController
         end  
     end
 
+    post '/logout' do
+        session.clear
+        redirect '/books'
+    end
+
     get '/login' do
         erb :'users/login'
     end
