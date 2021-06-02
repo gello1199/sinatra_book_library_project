@@ -1,7 +1,12 @@
-<h1>Title: <%=@book.title%></h1><br>
-<h2>Author: <%=@book.author%></h2>
-<h2>Genre: <%=@book.genre%></h2>
-<h2>Published: <%=@book.year_published%></h2>
+<h1>
+<label>Title: <%=@book.title%></label>
+</h1>
+
+<h2>
+<label>Author: <%=@book.author%></label><br>
+<label>Genre: <%=@book.genre%></label><br>
+<label>Published: <%=@book.year_published%></label>
+</h2>
 
 <% if @book.user == current_user && current_user != nil %>
 <a href="/books/<%=@book.id%>/edit"><button>Edit</button></a>
@@ -10,11 +15,4 @@
 <input type="hidden" name="_method" value="delete">
 <input type="submit" id="submit" value="Delete">
 </form>
-
 <%end%>
-
-<a href="/books"><button>Return to Home</button></a>
-
-
-<h3>Submission created by: </h3>
-
