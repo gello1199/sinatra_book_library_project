@@ -35,7 +35,7 @@ class UserController < ApplicationController
         redirect '/login'
     end
 
-    get '/logout' do
+    post '/logout' do
         session.clear
         redirect '/books'
     end
