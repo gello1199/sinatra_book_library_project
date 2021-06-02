@@ -3,13 +3,15 @@
 <h2>Genre: <%=@book.genre%></h2>
 <h2>Published: <%=@book.year_published%></h2>
 
+<% if @book.user_id == current_user.id %>
 <a href="/books/<%=@book.id%>/edit"><button>Edit</button></a>
-
 
 <form method="POST" action="/books/<%=@book.id%>">
 <input type="hidden" name="_method" value="delete">
 <input type="submit" id="submit" value="Delete">
 </form>
+
+<%end%>
 
 <a href="/books"><button>Return to Home</button></a>
 
