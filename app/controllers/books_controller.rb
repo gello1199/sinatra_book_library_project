@@ -34,7 +34,7 @@ class BooksController < ApplicationController
         end
 
         @book = Book.find_by_id(params[:id])
-        
+
         if @book.user_id != current_user.id
             redirect '/books'
         end
@@ -46,6 +46,9 @@ class BooksController < ApplicationController
             redirect '/login'
         end
         @book = Book.find_by_id(params[:id])
+        if @book.user_id != current_user.id
+            redirect '/books'
+        end
         @book.update(params[:book])        
         @book.save
 
@@ -57,6 +60,9 @@ class BooksController < ApplicationController
             redirect '/login'
         end
         @book = Book.find_by_id(params[:id])
+        if @book.user_id != current_user.id
+            redirect '/books'
+        end
         @book.destroy
         redirect "/books"
     end
