@@ -17,7 +17,9 @@ class BooksController < ApplicationController
             redirect '/login'
         end
         @book = Book.new(params)
+        @book.user_id = session[:user_id] #taking a book user_id and assigning it to the session
         @book.save
+        binding.pry
         redirect '/books'
     end
 
