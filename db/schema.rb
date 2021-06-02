@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_173235) do
     t.string "title"
     t.string "author"
     t.string "genre"
-    t.integer "year_published"
+    t.string "year_published"
     t.integer "user_id"
   end
 

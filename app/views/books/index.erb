@@ -1,5 +1,5 @@
 <% if logged_in? %>
-<h1>Welcome <%= current_user.username %> to your Virtual Library</h1><br>
+<h1>Welcome <%= current_user.username %> to the Virtual Library</h1><br>
 <%end%>
 <ul>
 <h2>Click below to learn more about your favorite book</h2>
@@ -12,6 +12,5 @@
 <br>
 <a href="/books/new"><button>Create New Book</button></a><br><br>
 
-<form method="POST" action='/logout'>
-<input type="submit" value="Log Out">
+
 </form>

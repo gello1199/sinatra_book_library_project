@@ -13,10 +13,13 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    /* background-color: lightblue; */
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
+    background-image: url('https://img.freepik.com/free-vector/modern-library-with-bookshelf-illustration_1262-16576.jpg?size=626&ext=jpg&ga=GA1.2.926987452.1622592000');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .wrapper {

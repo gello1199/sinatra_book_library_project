@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-    get '/books' do 
+    get '/books' do
         @books = Book.all
         erb :'books/index'
     end
@@ -19,12 +19,13 @@ class BooksController < ApplicationController
         @book = Book.new(params)
         @book.user_id = session[:user_id] #taking a book user_id and assigning it to the session
         @book.save
-        binding.pry
+        # binding.pry
         redirect '/books'
     end
 
     get '/books/:id' do
         @book = Book.find_by_id(params[:id])
+        # binding.pry
         erb :'books/show'
     end
 
