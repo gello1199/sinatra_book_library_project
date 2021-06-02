@@ -2,7 +2,7 @@
 <h1>Welcome <%= current_user.username %> to your Virtual Library</h1><br>
 <%end%>
 <ul>
-<h2>All Submissions</h2>
+<h2>Click below to learn more about your favorite book</h2>
 <% @books.each do |b| %>
 <li>
 <a href="/books/<%= b.id %>"><%= b.title %>

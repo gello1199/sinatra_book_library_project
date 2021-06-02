@@ -21,20 +21,23 @@ class UserController < ApplicationController
         end  
     end
 
-    post '/logout' do
-        session.clear
-        redirect '/books'
-    end
-
     get '/login' do
         erb :'users/login'
     end
 
     post '/login' do
-        user = User.new(params)
-
+        # binding.pry
+        user = User.find_by_username(params[:username])
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            redirect '/books'
+        end
         redirect '/login'
     end
 
+    post '/logout' do
+        session.clear
+        redirect '/books'
+    end
 
 end
