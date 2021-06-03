@@ -19,22 +19,27 @@
 
     <div class="wrapper">
 
-    <a href="/books">
-    <img src="https://www.pngfind.com/pngs/b/216-2160526_books-clipart-png.png">
-    </a><br>
+      <div class="navbar">
+      <ul>
+        <% if !logged_in? %>
+          <li><a href="/signup">Sign Up</a></li>
+          <li><a href="/login">Log In</a></li>
+        <%else%>
+          <li><a href="/books">Home</a></li>
+          <li><a href="/books/new">Create New Book</a></li>
+          <div class="logout">
+          <form method="POST" action='/logout'>
+          <input type="submit" value="Log Out">
+          </form>
+          </div>
+        <%end%>
+        </ul>
+      </div>
+        <br>
 
-    <div class="navbar">
-    <% if !logged_in? %>
-    <a href="/signup">Sign Up</a>
-    <a href="/login">Log In</a>
-    <%else%>
-    <a href="/books">Home</a> 
-    <a href="/books/new">Create New Book</a>
-    <form method="POST" action='/logout'>
-    <input type="submit" value="Log Out">
-    </form>
-    <%end%>
-    </div>
+        <a href="/books">
+        <img src="https://www.pngfind.com/pngs/b/216-2160526_books-clipart-png.png">
+        </a><br>
 
         <%= yield %>
 

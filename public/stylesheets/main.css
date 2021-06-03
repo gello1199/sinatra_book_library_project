@@ -107,18 +107,22 @@
     margin-right: auto;
   }
 
-  .navbar {
-    text-align: center;
-    
-  }
 
-  li {
+  .navbar li {
+    display: inline;
+    padding: 7px;
+    background-color: white;
   }
 
   li:hover{
     background-color: aliceblue;
     display: inline;
 
+  }
+
+  div.logout {
+    float: right;
+    
   }
 
   div.edit{
