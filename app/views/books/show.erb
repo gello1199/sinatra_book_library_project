@@ -5,14 +5,17 @@
 <h2>
 <label>Author: <%=@book.author%></label><br>
 <label>Genre: <%=@book.genre%></label><br>
-<label>Published: <%=@book.year_published%></label>
+<label>Published: <%=@book.year_published%></label><br>
+<label>For more information: </label>
 </h2>
 
 <% if @book.user == current_user && current_user != nil %>
-<a href="/books/<%=@book.id%>/edit"><button>Edit</button></a>
+<div class="edit">
+<a href="/books/<%=@book.id%>/edit"><button>Edit</button></a><br><br>
 
 <form method="POST" action="/books/<%=@book.id%>">
 <input type="hidden" name="_method" value="delete">
 <input type="submit" id="submit" value="Delete">
 </form>
+</div>
 <%end%>

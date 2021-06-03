@@ -18,8 +18,14 @@
 
 
     <div class="wrapper">
+
+    <a href="/books">
+    <img src="https://www.pngfind.com/pngs/b/216-2160526_books-clipart-png.png">
+    </a><br>
+
+    <div class="navbar">
     <% if !logged_in? %>
-    <a href="/signup">Sign Up</a> 
+    <a href="/signup">Sign Up</a>
     <a href="/login">Log In</a>
     <%else%>
     <a href="/books">Home</a> 
@@ -27,9 +33,8 @@
     <form method="POST" action='/logout'>
     <input type="submit" value="Log Out">
     </form>
-    <%# <a href="/logout">Logout</a> %>
-    
     <%end%>
+    </div>
 
         <%= yield %>
 
