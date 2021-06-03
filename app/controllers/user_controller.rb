@@ -49,7 +49,7 @@ class UserController < ApplicationController
 
     post '/logout' do
         session.clear
-        redirect '/books'
+        redirect '/'
     end
 
 end
