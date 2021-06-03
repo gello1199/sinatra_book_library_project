@@ -17,7 +17,13 @@ class UserController < ApplicationController
         user = User.new(params)
 
         if !user.save
-            flash[:message] = "Invalid Username or Password"
+            # binding.pry
+            message = ""
+            user.errors.messages.each do |key, value|
+                # binding.pry
+             message << "#{key.to_s} #{value[0]} "
+            end
+            flash[:message] = message
             redirect '/signup'
         else
             user.save
