@@ -110,8 +110,13 @@
 
   .navbar li {
     display: inline;
-    padding: 7px;
+    padding: 5px;
+    margin: 10px;
     background-color: white;
+  }
+
+  li {
+    padding: 3px;
   }
 
   li:hover{
