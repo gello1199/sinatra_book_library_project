@@ -1,8 +1,12 @@
+require 'rack-flash'
+
 class UserController < ApplicationController
+    use Rack::Flash
     
-    get '/users' do
-        @users = User.all
-        erb :'users/index'
+    get '/users/:id' do
+        @user = User.find_by_id(params[:id])
+        # binding.pry
+       erb :'users/show' 
     end
 
     get '/signup' do
@@ -13,6 +17,7 @@ class UserController < ApplicationController
         user = User.new(params)
 
         if !user.save
+            flash[:message] = "Invalid Username or Password"
             redirect '/signup'
         else
             user.save
@@ -32,6 +37,7 @@ class UserController < ApplicationController
             session[:user_id] = user.id
             redirect '/books'
         end
+        flash[:message] = "Invalid Username or Password"
         redirect '/login'
     end
 

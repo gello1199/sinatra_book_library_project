@@ -1,0 +1,12 @@
+<% if logged_in? %>
+<h1>Welcome: <%= @user.username %></h1>
+<%end%>
+
+<ul>
+<h2>Your Submissions</h2>
+<% @user.books.each do |book| %>
+
+<li><a href="/books/<%= book.id %>"> <%= book.title %></a></li>
+<%end%>
+</ul>
+

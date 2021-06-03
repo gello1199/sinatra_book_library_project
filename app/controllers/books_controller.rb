@@ -2,6 +2,7 @@ class BooksController < ApplicationController
 
     get '/books' do
         @books = Book.all
+        # binding.pry
         erb :'books/index'
     end
 
@@ -18,9 +19,12 @@ class BooksController < ApplicationController
         end
         @book = Book.new(params)
         @book.user_id = session[:user_id] #taking a book user_id and assigning it to the session
-        @book.save
+        if @book.save
         # binding.pry
         redirect '/books'
+        else
+            redirect '/books/new'
+        end
     end
 
     get '/books/:id' do

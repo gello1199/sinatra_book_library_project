@@ -5,9 +5,8 @@
 <h2>Click below to learn more about your favorite book</h2>
 <% @books.each do |b| %>
 <li>
-<a href="/books/<%= b.id %>"><%= b.title %>
+<a href="/books/<%= b.id %>"><%= b.title %></a>
 </li>
 <%end%>
 </ul>
 <br>
-</form>
