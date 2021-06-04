@@ -26,8 +26,10 @@ class BooksController < ApplicationController
     end
 
     get '/books/:id' do
-        not_found
         @book = Book.find_by_id(params[:id])
+        if !@book
+            not_found
+        end
         # binding.pry
         erb :'books/show'
     end
