@@ -64,8 +64,9 @@
   }
 
   .content {
-    float: left;
-    width: 60%; /* 480px / 800px */
+    text-align: center;
+    /* width: 60%; 480px / 800px */
+
   }
 
   .sidebar {
@@ -125,6 +126,7 @@
   a {
     text-decoration: none;
     color: black;
+
   }
 
   li {
@@ -157,6 +159,12 @@
     font-weight: bold;
     color: blue;
     font-size: x-large;
+
+  }
+
+  a.gif img {
+    height: max-content;
+    width: max-content;
   }
 
 
