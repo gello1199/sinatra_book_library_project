@@ -7,16 +7,14 @@ class BooksController < ApplicationController
     end
 
     get '/books/new' do
-        if !logged_in?
-            redirect '/login'
-        end
+        redirect_if_not_logged_in
+        
         erb :'books/new'
     end
 
     post '/books' do
-        if !logged_in?
-            redirect '/login'
-        end
+        redirect_if_not_logged_in
+
         @book = Book.new(params)
         @book.user_id = session[:user_id] #taking a book user_id and assigning it to the session
         if @book.save
@@ -34,26 +32,19 @@ class BooksController < ApplicationController
     end
 
     get '/books/:id/edit' do
-        if !logged_in?
-            redirect '/login'
-        end
+        redirect_if_not_logged_in
 
         @book = Book.find_by_id(params[:id])
 
-        if @book.user_id != current_user.id
-            redirect '/books'
-        end
+        redirect_if_not_authorized
         erb :'books/edit'
     end
 
     patch '/books/:id' do
-        if !logged_in?
-            redirect '/login'
-        end
+        redirect_if_not_logged_in
+
         @book = Book.find_by_id(params[:id])
-        if @book.user_id != current_user.id
-            redirect '/books'
-        end
+        redirect_if_not_authorized
         @book.update(params[:book])        
         @book.save
 
@@ -61,15 +52,20 @@ class BooksController < ApplicationController
     end
 
     delete '/books/:id' do
-        if !logged_in?
-            redirect '/login'
-        end
+        redirect_if_not_logged_in
+
         @book = Book.find_by_id(params[:id])
+        redirect_if_not_authorized
+        @book.destroy
+        redirect "/books"
+    end
+
+    private
+
+    def redirect_if_not_authorized
         if @book.user_id != current_user.id
             redirect '/books'
         end
-        @book.destroy
-        redirect "/books"
     end
 
 
