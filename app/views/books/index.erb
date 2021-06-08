@@ -2,7 +2,13 @@
 <h1>Welcome <%= current_user.username %> to the Virtual Library</h1><br>
 <%end%>
 <ul>
-<h2>Click below to learn more about your favorite book</h2>
+<h2>Click or search below to learn more about your favorite book</h2>
+
+<form method="GET" action="/books/search">
+<input type="text" placeholder="Seach.." id="search" name="title">
+<input type="submit" value="submit">
+</form><br>
+
 <% @books.each do |b| %>
 <li>
 <a href="/books/<%= b.id %>"><%= b.title %></a>

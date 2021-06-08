@@ -6,6 +6,17 @@ class BooksController < ApplicationController
         erb :'books/index'
     end
 
+    get '/books/search' do
+        # binding.pry
+        @books = Book.where("title LIKE ?", "%#{params[:title]}%")
+        # binding.pry
+        if @books.empty?
+            redirect '/books'
+        else
+        erb :'books/index'
+        end
+    end
+
     get '/books/new' do
         redirect_if_not_logged_in
 
