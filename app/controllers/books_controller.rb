@@ -26,9 +26,9 @@ class BooksController < ApplicationController
     post '/books' do
         redirect_if_not_logged_in
 
-        @book = Book.new(params)
-        @book.user_id = session[:user_id] #taking a book user_id and assigning it to the session
-        if @book.save
+        book = Book.new(params)
+        book.user_id = session[:user_id] #taking a book user_id and assigning it to the session
+        if book.save
         # binding.pry
         redirect '/books'
         else

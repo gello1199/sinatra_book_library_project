@@ -15,8 +15,9 @@ class UserController < ApplicationController
 
     post '/signup' do
         user = User.new(params)
-
+        # binding.pry
         if !user.save
+        # if params[:username].empty? || params[:password].empty? || User.find_by(params[:username])
             # binding.pry
             message = ""
             user.errors.messages.each do |key, value|
@@ -41,6 +42,7 @@ class UserController < ApplicationController
         user = User.find_by_username(params[:username])
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
+            # binding.pry
             redirect '/books'
         end
         flash[:message] = "Invalid Username or Password"
