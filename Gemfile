@@ -10,6 +10,7 @@ gem 'bcrypt'
 gem 'rack-flash3'
 gem 'dotenv'
 gem 'foreman'
+gem 'rails_12factor'
 
 group :development do
 gem 'sqlite3', '~> 1.3.6'
